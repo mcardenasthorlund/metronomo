@@ -1,0 +1,117 @@
+{
+    "audios": [
+        {
+            "id": 1,
+            "palo": "bases",
+            "nombre": "Alegrías",
+            "detalle": "",
+            "url": "https://www.ideasypruebas2.es//metronomo/bases/ALEGRIAS.mp3",
+            "duracion": "5:02"
+        },{
+            "id": 2,
+            "palo": "bases",
+            "nombre": "Bulerías",
+            "detalle": "",
+            "url": "https://www.ideasypruebas2.es//metronomo/bases/buleria-al-golpe.mp3",
+            "duracion": "10:03"
+        },{
+            "id": 3,
+            "palo": "bases",
+            "nombre": "Bulerías II",
+            "detalle": "Marcado a 3 tiempos",
+            "url": "https://www.ideasypruebas2.es//metronomo/bases/bulerias.mp3",
+            "duracion": "20:04"
+        },{
+            "id": 4,
+            "palo": "bases",
+            "nombre": "Bulerías III",
+            "detalle": "Con jaleos",
+            "url": "https://www.ideasypruebas2.es//metronomo/bases/bulerias-juerga.mp3",
+            "duracion": "20:38"
+        },{
+            "id": 5,
+            "palo": "bases",
+            "nombre": "Bulerías IV",
+            "detalle": "Bulería de Jerez",
+            "url": "https://www.ideasypruebas2.es//metronomo/bases/compas-jerez.mp3",
+            "duracion": "16:05"
+        },{
+            "id": 6,
+            "palo": "bases",
+            "nombre": "Bulerías por Soleá",
+            "detalle": "",
+            "url": "https://www.ideasypruebas2.es//metronomo/bases/bulerias-solea.mp3",
+            "duracion": "5:04"
+        },{
+            "id": 7,
+            "palo": "bases",
+            "nombre": "Bulerías por Soleá II",
+            "detalle": "",
+            "url": "https://www.ideasypruebas2.es/metronomo/bases/bulerias-solea2.mp3",
+            "duracion": "5:06"
+        },{
+            "id": 8,
+            "palo": "bases",
+            "nombre": "Fandangos",
+            "detalle": "6 tiempos",
+            "url": "https://www.ideasypruebas2.es/metronomo/bases/fandangos-huelva-2.mp3",
+            "duracion": "10:29"
+        },{
+            "id": 9,
+            "palo": "bases",
+            "nombre": "Fandangos II",
+            "detalle": "6 tiempos",
+            "url": "https://www.ideasypruebas2.es/metronomo/bases/fandangos-huelva-3.mp3",
+            "duracion": "5:03"
+        },{
+            "id": 10,
+            "palo": "bases",
+            "nombre": "Fandangos",
+            "detalle": "12 tiempos",
+            "url": "https://www.ideasypruebas2.es/metronomo/bases/fandangos-huelva.mp3",
+            "duracion": "7:36"
+        },{
+            "id": 11,
+            "palo": "bases",
+            "nombre": "Sevillanas",
+            "detalle": "",
+            "url": "https://www.ideasypruebas2.es/metronomo/bases/sevillanas.mp3",
+            "duracion": "10:04"
+        },{
+            "id": 12,
+            "palo": "bases",
+            "nombre": "Sevillanas II",
+            "detalle": "",
+            "url": "https://www.ideasypruebas2.es/metronomo/bases/sevillanas2.mp3",
+            "duracion": "5:10"
+        },{
+            "id": 13,
+            "palo": "bases",
+            "nombre": "Seguiriyas",
+            "detalle": "",
+            "url": "https://www.ideasypruebas2.es/metronomo/bases/seguiriyas.mp3",
+            "duracion": "6:00"
+        },{
+            "id": 14,
+            "palo": "bases",
+            "nombre": "Tangos",
+            "detalle": "",
+            "url": "https://www.ideasypruebas2.es/metronomo/bases/Tangos-144.m4a",
+            "duracion": "5:02"
+        },{
+            "id": 15,
+            "palo": "bases",
+            "nombre": "Tangos II",
+            "detalle": "",
+            "url": "https://www.ideasypruebas2.es/metronomo/bases/Tangos-88-bmp.mp3",
+            "duracion": "6:04"
+        },{
+            "id": 16,
+            "palo": "bases",
+            "nombre": "Tanguillos",
+            "detalle": "",
+            "url": "https://www.ideasypruebas2.es/metronomo/bases/tanguillos.mp3",
+            "duracion": "10:11"
+        }
+    ]
+}

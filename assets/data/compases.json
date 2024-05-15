@@ -1,0 +1,78 @@
+{
+    "compases":
+	[
+        {
+            "id": 1,
+            "nombre": "Bulerías 6 tiempos",
+            "tiempos": 6,
+            "acentos": "3,6",
+            "velocidad": 180,
+            "palmas": "x-,x-,x-,x-,x-,--"
+        },
+        {
+            "id": 2,
+            "nombre": "Bulerías 12 tiempos",
+            "tiempos": 12,
+            "acentos": "3,6,8,10,12",
+            "velocidad": 180,
+            "palmas": "x-,x-,x-,x-,x-,x-,x-,x-,x-,x-,x-,x-"
+        },
+        {
+            "id": 3,
+            "nombre": "Fandangos",
+            "tiempos": 6,
+            "acentos": "3,4,6",
+            "velocidad": 120,
+            "palmas": "x-,x-,x-,x-,--,x-"
+        },
+        {
+            "id": 4,
+            "nombre": "Sevillanas",
+            "tiempos": 3,
+            "acentos": "1",
+            "velocidad": 90,
+            "palmas": "x-,x-,x-"
+        },
+        {
+            "id": 5,
+            "nombre": "Abandolaos",
+            "tiempos": 3,
+            "acentos": "1",
+            "velocidad": 90,
+            "palmas": "x-,x-,x-"
+        },
+        {
+            "id": 6,
+            "nombre": "Alegrías",
+            "tiempos": 12,
+            "acentos": "3,6,8,10,12",
+            "velocidad": 150,
+            "palmas": "xx,x-,x-,xx,x-,x-,xx,x-,xx,x-,x-,x-"
+        },
+        {
+            "id": 7,
+            "nombre": "Soleá",
+            "tiempos": 12,
+            "acentos": "3,6,8,10,12",
+            "velocidad": 90,
+            "palmas": "-x,x-,x-,x-,x-,x-,xx,x-,xx,x-,x-,x-"
+        },
+        {
+            "id": 8,
+            "nombre": "Tangos",
+            "tiempos": 4,
+            "acentos": "1",
+            "velocidad": 100,
+            "palmas": "--,xx,x-,x-"
+        },
+        {
+            "id": 9,
+            "nombre": "Rumba",
+            "tiempos": 4,
+            "acentos": "1",
+            "velocidad": 140,
+            "palmas": "--,-x,x-,x-"
+        }
+
+    ]
+}
