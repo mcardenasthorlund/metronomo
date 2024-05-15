@@ -16,7 +16,7 @@ Un metrónomo para practicar el flamenco. Dispone de la opción de incorporar ba
 </p>
 </div>
 
- ## About The Project
+ ## Sobre el proyecto
 
 ![Metrónomo Flamenco](https://metroapp.ideasypruebas2.es/assets/img/captura.jpg)
 
@@ -30,16 +30,18 @@ Hay muchos metrónomos para la práctica de la guitarra pero ninguno se adapta c
 
 
 
- ### Built With
+ ### Implementado con
 
 El metrónomo está realizado con las siguientes librerías de apoyo:
 
 - [Bootstrap](https://getbootstrap.com)
 - [Howler JS](https://howlerjs.com)
- ## License
+
+## Licencia
 
 Distributed under the MIT License. See [MIT License](https://opensource.org/licenses/MIT) for more information.
- ## Contact
+ ## Contacto
+LinkedIn : [https://www.linkedin.com/in/manuelcardenasthorlund/](https://www.linkedin.com/in/manuelcardenasthorlund/)
 
-Project Link: [https://github.com/mcardenasthorlund/metronomo](https://github.com/mcardenasthorlund/metronomo)
+Enlace del proyecto: [https://github.com/mcardenasthorlund/metronomo](https://github.com/mcardenasthorlund/metronomo)
 
