@@ -7,6 +7,13 @@ body{
   font-style: normal;
 }
 
+a{
+    color: #e6bb2f;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
 #logo{
     max-height: 120px;
     margin-bottom: 40px;
