@@ -36,7 +36,7 @@ El metrónomo está realizado con las siguientes librerías de apoyo:
 
 - [Bootstrap](https://getbootstrap.com)
 - [Howler JS](https://howlerjs.com)
-- [FontAwesomw](https://fontawesome.com)
+- [FontAwesome](https://fontawesome.com)
 
 ## Licencia
 
