@@ -45,6 +45,11 @@
   <!-- Iconos -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="/assets/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="/assets/fontawesome/css/brands.css">
+  <link rel="stylesheet" href="/assets/fontawesome/css/solid.css">
+
   <!-- Estilo -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
@@ -54,6 +59,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,200&family=Nunito:wght@300&display=swap"
     rel="stylesheet">
+
+    <!-- Componentes -->
+    <script src="/assets/components/components.js" type="module" defer></script>
 
   <!-- Javascript -->
   <script src="/assets/js/bases.js"></script>
@@ -83,6 +91,8 @@
 
   <div class="container text-center pt-5 contenedor">
 
+    <app-cabecera id="cabecera" titulo="" descripcion=""></app-cabecera>
+    
     <img id="logo-interior" src="/assets/img/logo.png" alt="logo">
 
     <a class="enlace" href="#" onclick="history.back()"><i class="bi bi-chevron-left"></i> Volver</a>
@@ -101,10 +111,7 @@
     <p></p>
     <label for="rngVelocidad" class="form-label">Velocidad: <span id="sp-velocidad"></span></label>
     <input type="range" class="form-range" style="width: 80%; " min="0.4" max="1.7" step="0.01" id="rngVelocidad" oninput="objBase.cambiarVelocidadBase()">
-    <br>
-    <small class="pt-3">Distribuido bajo la <a href='https://opensource.org/licenses/MIT' target="_blank">licencia MIT</a> <br>
-      <a href="https://www.linkedin.com/in/manuelcardenasthorlund/" target="_blank">Manuel Cárdenas Thorlund</a>
-    <br><span style="font-size: 0.7em;">Metrónomo Flamenco. v1.1</span></small>
+    <app-pie></app-pie>
   </div>
 
 </body>

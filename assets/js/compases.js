@@ -90,8 +90,7 @@ class Compases {
      */
     cargarDatosCompas() {
         this.compasActual = JSON.parse(localStorage.getItem('compas'));
-        document.getElementById('nombre-palo').innerHTML = this.compasActual.nombre;
-        document.getElementById('tiempos-palo').innerHTML = this.compasActual.tiempos + ' tiempos';
+        document.getElementById('cabecera').cambiarInfo(this.compasActual.nombre, this.compasActual.tiempos + ' tiempos');
         document.getElementById('sp-velocidad').innerHTML = this.compasActual.velocidad + ' BPM';
         document.getElementById('rngVelocidad').value = this.compasActual.velocidad;
 

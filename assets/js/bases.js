@@ -36,7 +36,7 @@ class Bases {
         let lista = document.getElementById('lista-bases');
         lista.innerHTML = '';
         this.bases.audios.forEach(base => {
-            let liCompas = `<li class="list-group-item lista" onclick="objBases.cargarBase('${base.id}')">${base.nombre} <small>${base.detalle}</small> <i class="bi bi-chevron-double-right"></i></li>`;
+            let liCompas = `<li class="list-group-item lista" onclick="objBase.cargarBase('${base.id}')">${base.nombre} <small>${base.detalle}</small> <i class="bi bi-chevron-double-right"></i></li>`;
             lista.innerHTML += liCompas;
         });
     }
@@ -49,8 +49,8 @@ class Bases {
 
     cargarDatosBase() {
         this.baseActual = JSON.parse(localStorage.getItem('base'));
-        document.getElementById('nombre-base').innerHTML = this.baseActual.nombre;
-        document.getElementById('descripcion-base').innerHTML = this.baseActual.detalle;
+
+        document.getElementById('cabecera').cambiarInfo(this.baseActual.nombre, this.baseActual.detalle);
 
         // Cargamos el audio
         document.getElementById('rngVelocidad').value = 1;

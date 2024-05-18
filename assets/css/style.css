@@ -90,3 +90,25 @@ a:hover{
 #sp-duracion{
     color:#e6bb2f;
 }
+
+.btn-social{
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.5em;
+}
+.btn-facebook{
+    background-color: #3b5998;
+}
+
+.btn-twitter{
+    background-color: #00acee;
+}
+
+.btn-linkedin{
+    background-color: #0e76a8;
+}
+
+.btn-whatsapp{
+    background-color: #25D366;
+}
