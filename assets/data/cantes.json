@@ -47,16 +47,26 @@
             "id": 4,
             "nombre": "Taranto",
             "detalle": "versión I",
-            "letra": "",
-            "acordes": "",
-            "videos":[]
+            "letra":    "Ayeos de entrada I|Ayeos de entrada II|Ay, mi muchacho      |que hace 3 días que no lo veo|que adonde andará mi muchacho|andará bebiendo vino|o andará por ahí borracho, ay|o alguna mujer me lo habrá comprometido, ooooh, ay que",
+            "acordes":  "Re7 -> Sol+ |Re7 Sol+ Fa# Fa#b Sol+ -> Fa#|La+ (Re7) Sol+ -> Re+|Re7                (Mi7) La  |La+        (Re7)  Sol+ -> Re+|     (Mi7)       La+|(Re7)            Sol+     Re7|Sol+                                     Fa# Fa#b -> Fa#",
+            "videos":[
+                {
+                    "nombre": "Fosforito",
+                    "url": "https://www.youtube.com/watch?v=bMZQLtlePMQ"
+                }
+            ]
         },{
             "id": 5,
             "nombre": "Taranto",
             "detalle": "versión II",
-            "letra": "",
+            "letra": "Porque ya no puedo más|las fuerzas me están faltando|y es que ya no puedo más|ni siquiera este taranto|voy a poder terminar|por eso canto llorando oooooh",
             "acordes": "",
-            "videos":[]
+            "videos":[
+                {
+                    "nombre": "Fosforito",
+                    "url": "https://youtu.be/bMZQLtlePMQ?si=0G8J5YClOkyn1om3&t=147"
+                }
+            ]
         }
     ]
 }

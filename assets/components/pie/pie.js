@@ -13,7 +13,7 @@ export class AppPie extends HTMLElement {
     </div>
         <small class='pt-3'>Distribuido bajo la <a href='https://opensource.org/licenses/MIT' target='_blank'>licencia MIT</a> <br>
         <a href='https://www.linkedin.com/in/manuelcardenasthorlund/' target='_blank'>Manuel Cárdenas Thorlund</a>
-        <br><span style='font-size: 0.7em;'>Metrónomo Flamenco. v1.3</span></small>
+        <br><span style='font-size: 0.7em;'>Metrónomo Flamenco. v1.4</span></small>
     `;
 
 
