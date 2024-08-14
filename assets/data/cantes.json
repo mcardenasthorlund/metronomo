@@ -1,0 +1,72 @@
+{
+    "cantes": [
+        {
+            "id": 1,
+            "nombre": "Cartagenera",
+            "detalle": "Cartagenera Chica",
+            "letra":    "De un soberano   |lloraba una cartagenera|ay a los pies de un soberano|por Dios y por la Magdalena|que no se lleven a mi hermano|ay al peñón de la Gomera",
+            "acordes":  "        Re+_Re7  |             Sol+ (La+)|     La7     Re+            |             Sol+ (Mi7) La+|  (La7)Re+         (Re7)Sol+ |            La+ Sol+ Fa#",
+            "videos":[
+                {
+                    "nombre": "Curro Piñana",
+                    "url": "https://www.youtube.com/watch?v=nd8O5IBFNrU"
+                },
+                {
+                    "nombre": "Mayte Martín (Cante de las Minas)",
+                    "url": "https://www.youtube.com/watch?v=QvXh8of_kCA"
+                },
+                {
+                    "nombre": "Jeromo Segura",
+                    "url": "https://www.youtube.com/watch?v=rkVSkVJcLX4"
+                },
+                {
+                    "nombre": "Rocío Luna (Cante de las Minas)",
+                    "url": "https://www.youtube.com/watch?v=BL6H5PGPz7s"
+                },
+                {
+                    "nombre": "Esther Merino (Cante de las Minas)",
+                    "url": "https://www.youtube.com/live/uorXfBy9axI?si=KDfv3Kq8dTJYi4uI&t=12631"
+                }
+            ]
+            
+        },{
+            "id": 2,
+            "nombre": "Minera",
+            "detalle": "de Encarnación Fernández",
+            "letra": "Ayeos de entrada I|Ayeo II",
+            "acordes": "Re+ Do+ Si- La+ -> Sol+|Re7 Sol+ -> Fa#",
+            "videos":[]
+        },{
+            "id": 3,
+            "nombre": "Minera",
+            "detalle": "de Pencho Cros",
+            "letra": "Ayeos de entrada I|Ayeo II|La noche es mi compañera|ay cuando mi farol no alumbra|la noche es mi compañera|porque el sol se queda fuera|de la galería profunda, ay|donde nace la minera",
+            "acordes": "Re+ Do+ Si- La+ -> Sol+|Re7 Sol+ -> Fa#",
+            "videos":[]
+        },{
+            "id": 4,
+            "nombre": "Taranto",
+            "detalle": "versión I",
+            "letra":    "Ayeos de entrada I|Ayeos de entrada II|Ay, mi muchacho      |que hace 3 días que no lo veo|que adonde andará mi muchacho|andará bebiendo vino|o andará por ahí borracho, ay|o alguna mujer me lo habrá comprometido, ooooh, ay que",
+            "acordes":  "Re7 -> Sol+ |Re7 Sol+ Fa# Fa#b Sol+ -> Fa#|La+ (Re7) Sol+ -> Re+|Re7                (Mi7) La  |La+        (Re7)  Sol+ -> Re+|     (Mi7)       La+|(Re7)            Sol+     Re7|Sol+                                     Fa# Fa#b -> Fa#",
+            "videos":[
+                {
+                    "nombre": "Fosforito",
+                    "url": "https://www.youtube.com/watch?v=bMZQLtlePMQ"
+                }
+            ]
+        },{
+            "id": 5,
+            "nombre": "Taranto",
+            "detalle": "versión II",
+            "letra": "Porque ya no puedo más|las fuerzas me están faltando|y es que ya no puedo más|ni siquiera este taranto|voy a poder terminar|por eso canto llorando oooooh",
+            "acordes": "",
+            "videos":[
+                {
+                    "nombre": "Fosforito",
+                    "url": "https://youtu.be/bMZQLtlePMQ?si=0G8J5YClOkyn1om3&t=147"
+                }
+            ]
+        }
+    ]
+}
