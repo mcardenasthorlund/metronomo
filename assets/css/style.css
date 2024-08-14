@@ -112,3 +112,14 @@ a:hover{
 .btn-whatsapp{
     background-color: #25D366;
 }
+
+#letra {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    white-space: break-spaces;
+  }
+
+  .acordes{
+    color: #e6bb2f;
+  }
