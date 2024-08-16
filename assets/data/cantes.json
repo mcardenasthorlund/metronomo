@@ -33,9 +33,17 @@
             "id": 2,
             "nombre": "Minera",
             "detalle": "de Encarnación Fernández",
-            "letra": "Ayeos de entrada I|Ayeo II",
-            "acordes": "Re+ Do+ Si- La+ -> Sol+|Re7 Sol+ -> Fa#",
-            "videos":[]
+            "letra": "Ayeos de entrada I|Ayeo II               |Tan fuerte su voladura      |un minero la cargó|tan fuerte su voladura    |sin saber que allí encontró|para siempre su sepultura, ayyy|con el plomo que cortó, ooooohh",
+            "acordes": "Re+ Do+ Si- La+ -> Sol+|Re7 Sol+ -> Fa#|  Re+ (Do+)(Sim) Sol+ -> Re+|      Re7     Sol+|Re+ (Do+)(Sim) Sol+ -> Re+|  Mi-      Mi7        La+  |La7   Sim La         Sol+  Re7 |Sol+  La+  Sol+  Fa#",
+            "videos":[
+                {
+                "nombre": "Encarnación Fernández (Cante de las Minas)",
+                "url": "https://www.youtube.com/watch?v=47IgqlSwoY0"
+            },{
+                "nombre": "Maria José Perez (Cante de las Minas)",
+                "url": "https://youtu.be/yzWSPoRKL0A?si=ODeXcZHJkyOzzFNK&t=258"
+            }
+        ]
         },{
             "id": 3,
             "nombre": "Minera",
@@ -59,12 +67,16 @@
             "id": 5,
             "nombre": "Taranto",
             "detalle": "versión II",
-            "letra": "Porque ya no puedo más|las fuerzas me están faltando|y es que ya no puedo más|ni siquiera este taranto|voy a poder terminar|por eso canto llorando oooooh",
-            "acordes": "",
+            "letra": "Ayeos de entrada I|Ayeos de entrada II|Porque ya no puedo más|las fuerzas me están faltando|y es que ya no puedo más     |ni siquiera este taranto|voy a poder terminar, aaayyy|por eso canto llorando oooooh",
+            "acordes": "Re7 -> Sol+ |Re7 Sol+ Fa# Fa#b -> Fa#|La+ (Re7) Sol+ -> Re+ |                  (Mi7) La  |La+        (Re7)  Sol+ -> Re+|              (Mi7) La+ |      (Re7)     Sol+     Re7|             Sol+      Fa#   ",
             "videos":[
                 {
                     "nombre": "Fosforito",
                     "url": "https://youtu.be/bMZQLtlePMQ?si=0G8J5YClOkyn1om3&t=147"
+                },
+                {
+                    "nombre": "José el Calli (Cante de las Minas)",
+                    "url": "https://www.youtube.com/watch?v=SCGCwaaOE-4"
                 }
             ]
         }
