@@ -62,13 +62,19 @@ class Cantes {
         let recursos = document.getElementById('lista-recursos');
         recursos.innerHTML = '';
         this.canteActual.videos.forEach(recurso => {
-            let liRecurso = `<li class="list-group-item lista" onclick="objCante.cargarVideo('${recurso.url}')">${recurso.nombre} <i class="bi bi-chevron-double-right"></i></li>`;
+            let liRecurso = `<li class="list-group-item lista" onclick="objCante.cargarVideo('${recurso.url}', ${recurso.embed})">${recurso.nombre} <i class="bi bi-chevron-double-right"></i></li>`;
             recursos.innerHTML += liRecurso;
         });
     }
 
-    cargarVideo(url){
-        window.open(url, '_blank');
+    cargarVideo(url, esEmbed){
+
+        if(esEmbed){
+            let htmlVideo = `<iframe width="100%" height="315" src="https://www.youtube.com/embed/${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+            document.getElementById('div-video').innerHTML = htmlVideo;
+        }else{
+            window.open(url, '_blank');
+        }
     }
 
     

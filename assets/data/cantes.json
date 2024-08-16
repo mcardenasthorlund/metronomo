@@ -9,23 +9,28 @@
             "videos":[
                 {
                     "nombre": "Curro Piñana",
+                    "embed": false,
                     "url": "https://www.youtube.com/watch?v=nd8O5IBFNrU"
                 },
                 {
                     "nombre": "Mayte Martín (Cante de las Minas)",
-                    "url": "https://www.youtube.com/watch?v=QvXh8of_kCA"
+                    "embed": true,
+                    "url": "QvXh8of_kCA"
                 },
                 {
                     "nombre": "Jeromo Segura",
+                    "embed": false,
                     "url": "https://www.youtube.com/watch?v=rkVSkVJcLX4"
                 },
                 {
                     "nombre": "Rocío Luna (Cante de las Minas)",
-                    "url": "https://www.youtube.com/watch?v=BL6H5PGPz7s"
+                    "embed": true,
+                    "url": "BL6H5PGPz7s"
                 },
                 {
                     "nombre": "Esther Merino (Cante de las Minas)",
-                    "url": "https://www.youtube.com/live/uorXfBy9axI?si=KDfv3Kq8dTJYi4uI&t=12631"
+                    "embed": false,
+                    "url": "https://www.youtube.com/watch?v=uorXfBy9axI&t=12631s"
                 }
             ]
             
@@ -38,10 +43,12 @@
             "videos":[
                 {
                 "nombre": "Encarnación Fernández (Cante de las Minas)",
-                "url": "https://www.youtube.com/watch?v=47IgqlSwoY0"
+                "embed": true,
+                "url": "47IgqlSwoY0"
             },{
                 "nombre": "Maria José Perez (Cante de las Minas)",
-                "url": "https://youtu.be/yzWSPoRKL0A?si=ODeXcZHJkyOzzFNK&t=258"
+                "embed": true,
+                "url": "yzWSPoRKL0A?si=ODeXcZHJkyOzzFNK&start=258"
             }
         ]
         },{
@@ -60,7 +67,8 @@
             "videos":[
                 {
                     "nombre": "Fosforito",
-                    "url": "https://www.youtube.com/watch?v=bMZQLtlePMQ"
+                    "embed": true,
+                    "url": "bMZQLtlePMQ"
                 }
             ]
         },{
@@ -72,11 +80,13 @@
             "videos":[
                 {
                     "nombre": "Fosforito",
-                    "url": "https://youtu.be/bMZQLtlePMQ?si=0G8J5YClOkyn1om3&t=147"
+                    "embed": true,
+                    "url": "bMZQLtlePMQ?si=0G8J5YClOkyn1om3&start=147"
                 },
                 {
                     "nombre": "José el Calli (Cante de las Minas)",
-                    "url": "https://www.youtube.com/watch?v=SCGCwaaOE-4"
+                    "embed": true,
+                    "url": "SCGCwaaOE-4"
                 }
             ]
         }
