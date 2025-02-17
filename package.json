@@ -1,0 +1,11 @@
+{
+  "name": "metronomo",
+  "version": "1.0.0",
+  "description": "Metronomo flamenco con bases y compases",
+  "main": "service_worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manuel Cárdenas Thorlund",
+  "license": "ISC"
+}
