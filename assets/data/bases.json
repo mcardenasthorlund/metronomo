@@ -119,6 +119,13 @@
             "detalle": "",
             "url": "https://www.ideasypruebas2.es/metronomo/bases/solea.mp3",
             "duracion": "10:13"
+        },{
+            "id": 18,
+            "palo": "bases",
+            "nombre": "Abandolaos",
+            "detalle": "",
+            "url": "https://www.ideasypruebas2.es/metronomo/bases/abandolaos.mp3",
+            "duracion": "5:52"
         }
     ]
 }
