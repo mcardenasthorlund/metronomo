@@ -1,0 +1,440 @@
+/* portal-modern.css
+   Modern, Stripe-inspired stylesheet for the employee portal
+   - Mobile-first
+   - Uses CSS custom properties for easy theming
+   - Drop this file after Bootstrap to override defaults
+*/
+
+/* =========================
+   Theme variables
+   ========================= */
+:root{
+  /* Primary / accents */
+  --color-primary: #635BFF;            /* cool bluish purple */
+  --color-primary-700: #4B45D6;
+  --color-accent: #06A6F2;             /* bright, for small accents */
+  --color-success: #16A34A;
+  --color-warning: #FFB020;
+
+  /* Neutrals */
+  --bg: #F6F9FC;                       /* page background */
+  --surface: #FFFFFF;                  /* card background */
+  --muted: #7B8794;                    /* subdued text */
+  --text: #0F1724;                     /* main text (high contrast) */
+  --border: #E3E8EE;                   /* subtle borders */
+
+  /* Elevation / shadows */
+  --shadow-1: 0 1px 2px rgba(16,24,40,0.04);
+  --shadow-2: 0 6px 24px rgba(16,24,40,0.08);
+  --shadow-3: 0 20px 40px rgba(16,24,40,0.10);
+
+  /* Radii and spacing scale (8px base) */
+  --radius-1: 4px;
+  --radius-2: 8px;
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+  --space-5: 3rem;     /* 48px */
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Lucida Grande", sans-serif;
+  --text-xs: 0.75rem;  /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem;   /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem;  /* 20px */
+  --text-2xl: 1.5rem;  /* 24px */
+
+  /* transition */
+  --short: 200ms;
+  --mid: 260ms;
+}
+
+/* =========================
+   Accessibility / Base
+   ========================= */
+* { box-sizing: border-box; }
+html { font-size: 16px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+body{
+  margin:0;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+  font-size: var(--text-base);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-variant-ligatures: contextual;
+}
+
+/* High contrast text for small sizes */
+p, li, label, input, button { color: var(--text); }
+
+/* links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--short) ease, opacity var(--short) ease;
+}
+a:hover { color: var(--color-primary-700); text-decoration: underline; }
+
+/* =========================
+   Layout helpers
+   ========================= */
+/* Spacing utility (consistent scale) */
+.u-mb-1 { margin-bottom: var(--space-1); }
+.u-mb-2 { margin-bottom: var(--space-2); }
+.u-mb-3 { margin-bottom: var(--space-3); }
+.u-pt-2 { padding-top: var(--space-2); }
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-2);
+  padding-right: var(--space-2);
+  padding-top: 1.5rem !important;
+}
+
+/* Simple responsive grid helpers */
+.grid {
+  display: grid;
+  gap: var(--space-2);
+}
+.grid--cols-2 { grid-template-columns: 1fr; }
+@media (min-width: 768px) { .grid--cols-2 { grid-template-columns: 1fr 360px; } }
+
+.row {
+  display:flex;
+  gap: var(--space-2);
+  flex-wrap:wrap;
+}
+
+/* Centering helpers */
+.center { display:flex; align-items:center; justify-content:center; }
+
+/* =========================
+   Header / Nav
+   ========================= */
+.app-header, header, #cabecera {
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid var(--border);
+  padding: calc(var(--space-2) - 0.25rem) var(--space-2);
+  display:flex;
+  align-items:center;
+  /* gap: var(--space-2); */
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.app-header .logo, .logo {
+  display:flex;
+  align-items:center;
+  gap: 0.75rem;
+}
+.logo img { height: 40px; width: auto; display:block; }
+
+/* Header title */
+.app-header .title {
+  font-weight: 600;
+  font-size: var(--text-lg);
+  letter-spacing: -0.02em;
+}
+
+/* =========================
+   Cards / Surfaces
+   ========================= */
+.card, .tarjeta, .card-body {
+  background: var(--surface);
+  border-radius: var(--radius-2);
+  /* box-shadow: var(--shadow-1); */
+  /* border: 1px solid rgba(16,24,40,0.04); */
+  padding: var(--space-1);
+  transition: box-shadow var(--mid) ease, transform var(--mid) ease;
+}
+
+/* Card header/title */
+.card-title, .tarjeta .title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: calc(var(--space-1) / 2);
+  color: var(--text);
+}
+
+/* Card subtle meta */
+.card .meta, .tarjeta .meta {
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+/* Card hover elevation */
+.card:hover {
+  box-shadow: var(--shadow-2);
+  transform: translateY(-3px);
+}
+
+/* Small card cluster */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: var(--space-2);
+}
+@media (min-width: 640px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* =========================
+   Buttons
+   ========================= */
+.btn {
+  display:inline-flex;
+  align-items:center;
+  gap: 0.5rem;
+  border: none;
+  padding: 0.625rem 1rem;             /* 10px 16px */
+  font-size: var(--text-sm);
+  border-radius: var(--radius-2);
+  cursor: pointer;
+  transition: transform var(--short) ease, box-shadow var(--short) ease, background-color var(--short) ease;
+  outline: none;
+  line-height:1;
+  box-shadow: none;
+  background: rgba(10,10,10,0.03);
+  color: var(--text);
+  border: 1px solid rgba(16,24,40,0.04);
+}
+
+/* Primary */
+.btn-primary, .boton, button[type="submit"] {
+  background: linear-gradient(180deg, var(--color-primary), var(--color-primary-700));
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 18px rgba(99,91,255,0.14);
+}
+.btn-primary:hover, .boton:hover { transform: translateY(-1px); filter:brightness(1.02); }
+
+/* Secondary / subtle */
+.btn-secondary, .btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Warning / Accent */
+.btn-warning, .boton-amarillo {
+  background: linear-gradient(180deg, var(--color-warning), #FF9B00);
+  color: #111;
+}
+
+/* Disabled */
+.btn:disabled, .btn[aria-disabled="true"] {
+  opacity: 0.5; cursor: not-allowed; transform:none;
+}
+
+/* Focus visible for keyboard users */
+:focus {
+  outline: none;
+}
+:focus-visible, .focus-visible {
+  box-shadow: 0 0 0 3px rgba(99,91,255,0.18);
+  border-radius: calc(var(--radius-2) + 2px);
+}
+
+/* =========================
+   Lists & Resources
+   ========================= */
+.lista-recursos, .lista-bases, .lista-cantes, .lista-compases {
+  list-style: none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap: 0.5rem;
+}
+.lista-recursos li {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 0.75rem;
+  border-radius: var(--radius-1);
+  background: linear-gradient(180deg, rgba(8,12,20,0.01), transparent);
+  border: 1px solid rgba(16,24,40,0.03);
+}
+.lista-recursos li .meta { color: var(--muted); font-size: var(--text-sm); }
+
+/* active item */
+.lista-recursos li.active {
+  background: linear-gradient(180deg, rgba(99,91,255,0.06), rgba(99,91,255,0.03));
+  border-color: rgba(99,91,255,0.12);
+  box-shadow: 0 4px 12px rgba(99,91,255,0.06);
+}
+.acordes{color: #e6bb2f;}
+
+/* =========================
+   Metronome / Reloj / Numeric UI
+   ========================= */
+.reloj, #cnvReloj, .numeros {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: var(--radius-2);
+  padding: var(--space-2);
+  background: linear-gradient(180deg, #fff, #FBFDFF);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-1);
+      margin: auto;
+}
+
+/* large numbers */
+#numeros {
+    width: 100%;
+    font-size: 8rem;
+    font-weight: 900;
+}
+.numeros { font-weight:700; font-size: 2.25rem; color: var(--text); }
+.numero-acento{
+    color: #e6bb2f;
+}
+/* small stat */
+.stat {
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+/* Slider / range control (styled briefly) */
+input[type="range"] {
+  accent-color: var(--color-primary);
+  width:100%;
+}
+
+#sp-duracion-actual, #sp-duracion, .separador {
+    font-size: 3em;
+}
+
+#sp-duracion {
+    color: #e6bb2f;
+}
+/* =========================
+   Media / thumbnails
+   ========================= */
+.card-img-top, img, .img-cargando {
+  max-width:100%;
+  display:block;
+  border-radius: calc(var(--radius-2) - 2px);
+  max-height: 100px;
+    object-fit: cover;
+}
+
+/* video container */
+#div-video {
+  border-radius: var(--radius-2);
+  overflow:hidden;
+  background: #000;
+  min-height: 180px;
+}
+
+/* =========================
+   Forms & controls
+   ========================= */
+label {
+  display:block;
+  margin-bottom: 0.375rem;
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+input[type="text"], select, textarea {
+  width:100%;
+  padding: 0.625rem 0.75rem;
+  border-radius: var(--radius-1);
+  border: 1px solid var(--border);
+  background: #fff;
+  font-size: var(--text-base);
+  transition: box-shadow var(--short) ease, border-color var(--short) ease;
+}
+input[type="text"]:focus, select:focus, textarea:focus {
+  box-shadow: 0 6px 16px rgba(99,91,255,0.08);
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+/* Form hint text */
+.help-text { font-size: var(--text-sm); color: var(--muted); }
+
+/* =========================
+   Footer
+   ========================= */
+.app-footer, footer, .app-pie {
+  border-top: 1px solid var(--border);
+  background: transparent;
+  padding: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--muted);
+  display:flex;
+  justify-content:space-between;
+  gap: var(--space-2);
+}
+
+/* =========================
+   Small UI & micro-interactions
+   ========================= */
+.kv {
+  display:flex; gap: 0.5rem; align-items:center;
+}
+.badge {
+  background: rgba(99,91,255,0.08);
+  color: var(--color-primary-700);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* subtle transitions */
+* { transition: background-color var(--short) ease, color var(--short) ease; }
+
+/* =========================
+   Utility: override common Bootstrap classes for visual parity
+   ========================= */
+/* make .btn classes consistent */
+.btn-primary, .btn-primary:focus, .btn-primary:hover { border-radius: var(--radius-2); box-shadow: 0 8px 22px rgba(99,91,255,0.12); }
+.btn-secondary { border-radius: var(--radius-2); border: 1px solid var(--border); background: transparent; }
+
+/* cards */
+.card { 
+    padding: var(--space-2); 
+    margin-bottom: .5rem;
+    padding-bottom: 0;
+}
+
+/* text center helper */
+.text-center { text-align:center; }
+
+/* =========================
+   Responsive breakpoints
+   ========================= */
+/* small screens already handled (mobile-first) */
+/* @media (min-width: 640px) {
+  .container { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+@media (min-width: 768px) {
+  body { font-size: 1rem; }
+}
+@media (min-width: 1024px) {
+  .app-header { padding: calc(var(--space-2) + 0.25rem) var(--space-3); }
+}
+@media (min-width: 1280px) {
+  .container { max-width: 1280px; }
+} */
+
+/* =========================
+   Performance / specificity notes
+   ========================= */
+/*
+ - Keep selectors simple and flat to avoid performance issues.
+ - This stylesheet is designed to be included AFTER Bootstrap so it overrides .btn, .card, etc.
+ - If you have very specific components in pages (IDs like #cnvReloj, #div-video, #sp-iniciar), the rules above
+   target them lightly (.reloj, #div-video, .numeros). If you want component-specific styling, add a small rule:
+     #cnvReloj { /* custom sizes */ }
+ - For highly-customized components (e.g. metronome canvas UI), consider adding component-level classes like
+   .component-metronome and then target that in CSS rather than IDs.
+*/

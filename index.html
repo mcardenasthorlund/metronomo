@@ -49,7 +49,8 @@
   <link rel="stylesheet" href="/assets/fontawesome/css/solid.css">
 
   <!-- Estilo -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+<link rel="stylesheet" href="/assets/css/modern.css">
 
   <!-- Tipografia -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,49 +65,43 @@
   <!-- Componentes -->
   <script src="/assets/components/components.js" type="module" defer></script>
 
+  
 </head>
 
 <body>
 
   <div class="container text-center pt-5 contenedor">
-    <img id="logo" src="/assets/img/logo.png" alt="logo">
+    <!-- <img id="logo" src="/assets/img/logo.png" alt="logo"> -->
     <h1 class="display-6">Metrónomo Flamenco</h1>
     <p class="lead">
       Selecciona la opción que desees
     </p>
 
-    <div class="row mb-4">
-      <div class="col-6">
-        <div class="card tarjeta" onclick="window.location.href='html/metro.html'">
+    <div class="card tarjeta" onclick="window.location.href='html/metro.html'">
           <img src="assets/img/guitarra.jpg" class="card-img-top imagen-card" alt="...">
           <div class="card-body">
             <h5 class="card-title">Metrónomo</h5>
+            <p>Practica con el reloj y/o los números</p>
           </div>
         </div>
-      </div>
-      <div class="col-6">
+
         <div class="card tarjeta" onclick="window.location.href='html/bases.html'">
           <img src="assets/img/cajon.png" class="card-img-top imagen-card" alt="...">
           <div class="card-body">
             <h5 class="card-title">Bases</h5>
+            <p>Bases de cajón predefinidas para ponerlas a la velocidad que quieras</p>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="row mb-4">
-      <div class="col-6">
         <div class="card tarjeta" onclick="window.location.href='html/cantes.html'">
           <img src="assets/img/cante.jpg" class="card-img-top imagen-card" alt="...">
           <div class="card-body">
             <h5 class="card-title">Cantes</h5>
+            <p>Librería de cantes con recursos audiovisuales</p>
           </div>
         </div>
-      </div>
-      <div class="col-6">
-      </div>
-    </div>
 
+    
     <app-pie></app-pie>
   </div>
 

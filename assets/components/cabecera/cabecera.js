@@ -5,7 +5,7 @@ export class AppCabecera extends HTMLElement {
 
     // TEMPLATE
     template = `
-    <img id="logo-interior" src="/assets/img/logo.png" alt="logo">
+    <!--<img id="logo-interior" src="/assets/img/logo.png" alt="logo">-->
       <a class="enlace" href="#" onclick="history.back()"><i class="bi bi-chevron-left"></i> Volver</a>
         <h1 class="display-6">[TITULO]</h1>
         <p class="lead">
