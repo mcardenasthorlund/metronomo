@@ -64,7 +64,7 @@ body{
   line-height: 1.45;
   font-size: var(--text-base);
   -webkit-tap-highlight-color: transparent;
-  -webkit-font-variant-ligatures: contextual;
+  /* -webkit-font-variant-ligatures: contextual; */
 }
 
 /* High contrast text for small sizes */
@@ -426,15 +426,4 @@ input[type="text"]:focus, select:focus, textarea:focus {
   .container { max-width: 1280px; }
 } */
 
-/* =========================
-   Performance / specificity notes
-   ========================= */
-/*
- - Keep selectors simple and flat to avoid performance issues.
- - This stylesheet is designed to be included AFTER Bootstrap so it overrides .btn, .card, etc.
- - If you have very specific components in pages (IDs like #cnvReloj, #div-video, #sp-iniciar), the rules above
-   target them lightly (.reloj, #div-video, .numeros). If you want component-specific styling, add a small rule:
-     #cnvReloj { /* custom sizes */ }
- - For highly-customized components (e.g. metronome canvas UI), consider adding component-level classes like
-   .component-metronome and then target that in CSS rather than IDs.
-*/
+
