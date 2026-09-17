@@ -1,6 +1,6 @@
 {
   "name": "metronomo",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Metronomo flamenco con bases y compases",
   "main": "service_worker.js",
   "scripts": {

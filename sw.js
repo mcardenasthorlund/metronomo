@@ -1,7 +1,7 @@
 // --- CACHE VERSIONING AND CONFIGURATION ---
 // IMPORTANT: Incrementing this version string will trigger a complete cache update
 // and remove all old caches upon service worker activation.
-const CACHE_VERSION = 'v3.0.0';
+const CACHE_VERSION = 'v3.1.0';
 const CACHE_NAME = `my-app-cache-${CACHE_VERSION}`;
 
 // List of all essential resources to cache on installation.
