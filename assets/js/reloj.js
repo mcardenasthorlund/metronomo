@@ -18,9 +18,20 @@ function dibujarCirculoReloj(ctx, radius) {
     ctx.fill();
 }
 
-function dibujarNumeros(ctx, radius, compases, acentos) {
+function anguloTiempo(num, tiempos, numArriba) {
+    // Sin numArriba: se mantiene el comportamiento original
+    if (numArriba === undefined || numArriba === null || numArriba === '') {
+        return num * (2 * Math.PI / tiempos);
+    }
+    // numArriba va en la vertical (12 en un reloj), el resto se reparte desde ahí.
+    // En este dibujo la vertical (arriba) corresponde al ángulo 0.
+    return (num - numArriba) * (2 * Math.PI / tiempos);
+}
+
+function dibujarNumeros(ctx, radius, compases, acentos, numArriba, visibles, etiquetas) {
     
     let sAcentos = acentos.split(',');
+    let sVisibles = visibles ? visibles.split(',') : [];
     var ang;
     var num;
     ctx.font = radius * 0.15 + "px arial";
@@ -28,7 +39,12 @@ function dibujarNumeros(ctx, radius, compases, acentos) {
     ctx.textAlign = "center";
     var ang2 = compases / 2;
     for (num = 1; num < compases + 1; num++) {
-        ang = num * (Math.PI / ang2);
+        // Si se define visibles, solo se pinta el número de los tiempos marcados
+        if (sVisibles.length && !sVisibles.includes(num.toString()))
+            continue;
+        ang = anguloTiempo(num, compases, numArriba);
+        // Etiqueta personalizada si está definida; si no, el número del tiempo
+        let texto = (etiquetas && etiquetas[num - 1]) ? etiquetas[num - 1] : num.toString();
         ctx.rotate(ang);
         ctx.translate(0, -radius * 0.85);
         ctx.rotate(-ang);
@@ -36,18 +52,16 @@ function dibujarNumeros(ctx, radius, compases, acentos) {
             ctx.fillStyle = "#e6bb2f";
         else
             ctx.fillStyle = "black";
-        ctx.fillText(num.toString(), 0, 0);
+        ctx.fillText(texto, 0, 0);
         ctx.rotate(ang);
         ctx.translate(0, radius * 0.85);
         ctx.rotate(-ang);
     }
 }
 
-function dibujarAguja(ctx, radius, tiempo, tiempos) {
+function dibujarAguja(ctx, radius, tiempo, tiempos, numArriba) {
 
-    posicion = tiempo % tiempos;
-    var ang2 = tiempos / 2;
-    var posicion = (posicion * Math.PI / ang2);
+    posicion = anguloTiempo(tiempo, tiempos, numArriba);
 
     dibujarAgujaTiempo(ctx, posicion, radius * 0.75, radius * 0.02);
 }

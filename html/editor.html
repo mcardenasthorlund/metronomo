@@ -10,24 +10,18 @@
   <!-- Manifiesto -->
   <link rel="manifest" href="/manifest.webmanifest">
   <!-- Index JS-->
-  <!-- <script src="/assets/js/index.js"></script> -->
-      <script src="/app.js"></script>
+  <script src="/app.js"></script>
   <!-- Fin Opciones para PWA -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <!-- Etiquetas Meta -->
-  <!-- Primary Meta Tags -->
   <meta name="title" content="Metrónomo Flamenco" />
   <meta name="description" content="Metrónomo Flamenco. App para el Metronomo Flamenco" />
-
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://metroapp.ideasypruebas2.es/index.html" />
   <meta property="og:title" content="Metrónomo Flamenco" />
   <meta property="og:description" content="Metrónomo Flamenco. App para el Metronomo Flamenco" />
   <meta property="og:image" content="https://metroapp.ideasypruebas2.es/assets/img/logo.png" />
-
-  <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://metroapp.ideasypruebas2.es/index.html" />
   <meta property="twitter:title" content="Metrónomo Flamenco" />
@@ -50,8 +44,7 @@
   <link rel="stylesheet" href="/assets/fontawesome/css/solid.css">
 
   <!-- Estilo -->
-  <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
-<link rel="stylesheet" href="/assets/css/modern.css">
+  <link rel="stylesheet" href="/assets/css/modern.css">
 
   <!-- Tipografia -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,16 +59,36 @@
   <!-- Componentes -->
   <script src="/assets/components/components.js" type="module" defer></script>
 
+  <style>
+    .tiempo-acento {
+      min-width: 42px;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .tiempo-acento.acento-activo {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: #fff;
+    }
+    .ojo {
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .ojo.ojo-vis {
+      color: var(--color-accent);
+    }
+  </style>
+
   <!-- Javascript -->
-  <script src="/assets/js/compases.js"></script>
-
+  <script src="/assets/js/editor.js"></script>
   <script>
-    let objCompas;
+    let objEditor;
     document.addEventListener('DOMContentLoaded', () => {
-      objCompas = new Compases();
-      objCompas.refrescarCompases();
+      objEditor = new Editor();
+      objEditor.init();
     })
-
   </script>
 </head>
 
@@ -83,33 +96,53 @@
 
   <div class="container text-center pt-5 contenedor">
 
-    <app-cabecera titulo="Metrónomo Flamenco" descripcion="Selecciona el compás" volver="location.href='../index.html'"></app-cabecera>
+    <app-cabecera titulo="Ritmo propio" descripcion="Define tu propio compás"></app-cabecera>
 
-    <ul id="lista-compases" class="list-group lista mt-3 mb-3"></ul>
-
-    <button type="button" class="btn btn-success boton" onclick="window.location.href='editor.html'"><i
-        class="bi bi-plus-circle"></i> Crear ritmo propio</button>
-
-    <app-pie></app-pie>
-  </div>
-
-  <div class="modal fade" id="modalEliminar" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Eliminar ritmo</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+    <div class="card tarjeta p-3 mt-3">
+      <div class="row g-3 mb-3" style="gap: 0;">
+        <div class="col-6">
+          <div class="form-floating text-start">
+            <input type="text" class="form-control" id="txtNombre" placeholder="Nombre">
+            <label for="txtNombre">Nombre</label>
+          </div>
         </div>
-        <div class="modal-body">
-          ¿Seguro que quieres eliminar este ritmo propio?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-danger" onclick="objCompas.confirmarEliminacion()"><i
-              class="bi bi-trash"></i> Eliminar</button>
+        <div class="col-6">
+          <div class="form-floating text-start">
+            <input type="number" class="form-control" id="nudTiempos" value="4" min="1" max="24"
+              onchange="objEditor.actualizarTiempos()">
+            <label for="nudTiempos">Número de tiempos</label>
+          </div>
         </div>
       </div>
+
+      <label for="rngVelocidad" class="form-label text-start w-100">Velocidad por defecto: <span
+          id="sp-velocidad">100</span> BPM</label>
+      <input type="range" class="form-range" min="70" max="300" step="10" value="100" id="rngVelocidad"
+        oninput="document.getElementById('sp-velocidad').innerHTML = this.value">
+
+      <div class="form-floating text-start mt-3">
+        <input type="number" class="form-control" id="txtVertical" placeholder="Vertical" min="1" max="24">
+        <label for="txtVertical">Número en la vertical del reloj (12)</label>
+      </div>
+
+      <hr>
+
+      <div class="row fw-bold mb-2" style="gap: 0;">
+        <div class="col-6 text-start"></div>
+        <div class="col-3">Palma</div>
+        <div class="col-3">Contra</div>
+      </div>
+      <div id="grid-palmas"></div>
     </div>
+
+    <div class="mt-3">
+      <button type="button" class="btn btn-success boton" onclick="objEditor.guardar()"><i class="bi bi-check2-circle"></i>
+        Guardar</button>
+      <button type="button" class="btn btn-secondary boton" onclick="history.back()"><i class="bi bi-chevron-left"></i>
+        Volver</button>
+    </div>
+
+    <app-pie></app-pie>
   </div>
 
 </body>

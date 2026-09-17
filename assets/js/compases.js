@@ -73,6 +73,36 @@ class Compases {
             let liCompas = `<li class="list-group-item lista" onclick="objCompas.cargarCompas('${compas.id}')">${compas.nombre} <i class="bi bi-chevron-double-right"></i></li>`;
             lista.innerHTML += liCompas;
         });
+
+        let propios = JSON.parse(localStorage.getItem('compasesPropios')) || [];
+        propios.forEach(compas => {
+            let liCompas = `<li class="list-group-item lista"><span onclick="objCompas.cargarCompas('${compas.id}')">${compas.nombre}</span> <i class="bi bi-chevron-double-right"></i> <i class="bi bi-pencil-square" onclick="objCompas.editarCompasPropio('${compas.id}')"></i> <i class="bi bi-trash" onclick="objCompas.eliminarCompasPropio('${compas.id}')"></i></li>`;
+            lista.innerHTML += liCompas;
+        });
+    }
+
+    editarCompasPropio(id) {
+        let propios = JSON.parse(localStorage.getItem('compasesPropios')) || [];
+        let compas = propios.find(compas => compas.id == id);
+        if (compas) {
+            localStorage.setItem('compasEdicion', JSON.stringify(compas));
+            window.location.href = 'editor.html';
+        }
+    }
+
+    eliminarCompasPropio(id) {
+        this.compasAEliminar = id;
+        let modal = new bootstrap.Modal(document.getElementById('modalEliminar'));
+        modal.show();
+    }
+
+    confirmarEliminacion() {
+        let propios = JSON.parse(localStorage.getItem('compasesPropios')) || [];
+        propios = propios.filter(compas => compas.id != this.compasAEliminar);
+        localStorage.setItem('compasesPropios', JSON.stringify(propios));
+        this.compasAEliminar = null;
+        this.cargarCompases();
+        bootstrap.Modal.getInstance(document.getElementById('modalEliminar')).hide();
     }
 
     /**
@@ -81,6 +111,10 @@ class Compases {
      */
     cargarCompas(id) {
         let compas = this.compases.compases.find(compas => compas.id == id);
+        if (!compas) {
+            let propios = JSON.parse(localStorage.getItem('compasesPropios')) || [];
+            compas = propios.find(compas => compas.id == id);
+        }
         localStorage.setItem('compas', JSON.stringify(compas));
         window.location.href = 'compas.html';
     }
@@ -104,7 +138,7 @@ class Compases {
         this.radius = this.radius * 0.90;
     
         dibujarCirculoReloj(this.ctx, this.radius);
-        dibujarNumeros(this.ctx, this.radius, this.compasActual.tiempos, this.compasActual.acentos);
+        dibujarNumeros(this.ctx, this.radius, this.compasActual.tiempos, this.compasActual.acentos, this.compasActual.numArriba, this.compasActual.visibles, this.compasActual.etiquetas);
         
     }
 
@@ -164,8 +198,8 @@ class Compases {
 
         // Cambiamos el numero
         dibujarCirculoReloj(this.ctx, this.radius);
-        dibujarNumeros(this.ctx, this.radius, this.compasActual.tiempos, this.compasActual.acentos);
-        dibujarAguja(this.ctx, this.radius, numeroActual, this.compasActual.tiempos);
+        dibujarNumeros(this.ctx, this.radius, this.compasActual.tiempos, this.compasActual.acentos, this.compasActual.numArriba, this.compasActual.visibles, this.compasActual.etiquetas);
+        dibujarAguja(this.ctx, this.radius, numeroActual, this.compasActual.tiempos, this.compasActual.numArriba);
 
         document.getElementById('numeros').innerHTML = numeroActual;
         let palma = palmas[numeroActual - 1][0];
