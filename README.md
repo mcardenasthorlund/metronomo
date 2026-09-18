@@ -17,8 +17,6 @@ Un metrónomo para practicar el flamenco. Dispone de la opción de incorporar ba
 
  ## Sobre el proyecto
 
-![Metrónomo Flamenco](https://metroapp.ideasypruebas2.es/assets/img/captura.jpg)
-
 Hay muchos metrónomos para la práctica de la guitarra pero ninguno se adapta completamente a mis necesidades así que me fabriqué el mío propio. Las funcionalidades son las siguientes:
 
 
@@ -29,7 +27,23 @@ Hay muchos metrónomos para la práctica de la guitarra pero ninguno se adapta c
 - Tanto los compases como las bases y los cantes se definen en archivos JSON para que sean fácilmente actualizables y se leen en tiempo de ejecución
 - Se incorpora el Service Worker y el Manifest para que se pueda instalar como PWA en cualquier dispositivo
 
+### Capturas de pantalla
 
+<table>
+  <tr>
+    <td><img src="assets/img/capturas/1.png" alt="Captura 1"></td>
+    <td><img src="assets/img/capturas/2.png" alt="Captura 2"></td>
+    <td><img src="assets/img/capturas/3.png" alt="Captura 3"></td>
+  </tr>
+  <tr>
+    <td><img src="assets/img/capturas/4.png" alt="Captura 4"></td>
+    <td><img src="assets/img/capturas/5.png" alt="Captura 5"></td>
+    <td><img src="assets/img/capturas/6.png" alt="Captura 6"></td>
+  </tr>
+  <tr>
+    <td><img src="assets/img/capturas/7.png" alt="Captura 7"></td>
+  </tr>
+</table>
 
  ### Implementado con
 
