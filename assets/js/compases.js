@@ -70,15 +70,30 @@ class Compases {
         let lista = document.getElementById('lista-compases');
         lista.innerHTML = '';
         this.compases.compases.forEach(compas => {
-            let liCompas = `<li class="list-group-item lista" onclick="objCompas.cargarCompas('${compas.id}')">${compas.nombre} <i class="bi bi-chevron-double-right"></i></li>`;
+            let liCompas = `<li class="list-group-item lista d-flex justify-content-between align-items-center" onclick="objCompas.cargarCompas('${compas.id}')">${compas.nombre} <i class="bi bi-chevron-double-right" style="color:var(--color-primary)"></i></li>`;
             lista.innerHTML += liCompas;
         });
 
+        // Ritmos propios en una lista separada al inicio
         let propios = JSON.parse(localStorage.getItem('compasesPropios')) || [];
-        propios.forEach(compas => {
-            let liCompas = `<li class="list-group-item lista"><span onclick="objCompas.cargarCompas('${compas.id}')">${compas.nombre}</span> <i class="bi bi-chevron-double-right"></i> <i class="bi bi-pencil-square" onclick="objCompas.editarCompasPropio('${compas.id}')"></i> <i class="bi bi-trash" onclick="objCompas.eliminarCompasPropio('${compas.id}')"></i></li>`;
-            lista.innerHTML += liCompas;
-        });
+        let listaPropios = document.getElementById('lista-compases-propios');
+        let seccionPropios = document.getElementById('seccion-propios');
+        if (propios.length > 0) {
+            listaPropios.innerHTML = '';
+            propios.forEach(compas => {
+                let liCompas = `<li class="list-group-item lista d-flex justify-content-between align-items-center">
+                    <span class="flex-grow-1" onclick="objCompas.cargarCompas('${compas.id}')">${compas.nombre}</span>
+                    <span class="acciones">
+                        <i class="bi bi-pencil-square icono-editar" title="Editar" onclick="objCompas.editarCompasPropio('${compas.id}')"></i>
+                        <i class="bi bi-trash icono-eliminar" title="Eliminar" onclick="objCompas.eliminarCompasPropio('${compas.id}')"></i>
+                    </span>
+                </li>`;
+                listaPropios.innerHTML += liCompas;
+            });
+            seccionPropios.style.display = 'block';
+        } else {
+            seccionPropios.style.display = 'none';
+        }
     }
 
     editarCompasPropio(id) {

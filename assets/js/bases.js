@@ -36,7 +36,7 @@ class Bases {
         let lista = document.getElementById('lista-bases');
         lista.innerHTML = '';
         this.bases.audios.forEach(base => {
-            let liCompas = `<li class="list-group-item lista" onclick="objBase.cargarBase('${base.id}')">${base.nombre} <small>${base.detalle}</small> <i class="bi bi-chevron-double-right"></i></li>`;
+            let liCompas = `<li class="list-group-item lista d-flex justify-content-between align-items-center" onclick="objBase.cargarBase('${base.id}')"><span>${base.nombre} <small>${base.detalle}</small></span> <i class="bi bi-chevron-double-right" style="color:var(--color-primary)"></i></li>`;
             lista.innerHTML += liCompas;
         });
     }

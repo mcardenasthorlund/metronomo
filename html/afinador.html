@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metrónomo Flamenco</title>
+
+  <!-- Opciones para PWA -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <script src="/app.js"></script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Etiquetas Meta -->
+  <meta name="title" content="Metrónomo Flamenco" />
+  <meta name="description" content="Metrónomo Flamenco. App para el Metronomo Flamenco" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://metroapp.ideasypruebas2.es/index.html" />
+  <meta property="og:title" content="Metrónomo Flamenco" />
+  <meta property="og:description" content="Metrónomo Flamenco. App para el Metronomo Flamenco" />
+  <meta property="og:image" content="https://metroapp.ideasypruebas2.es/assets/img/logo.png" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://metroapp.ideasypruebas2.es/index.html" />
+  <meta property="twitter:title" content="Metrónomo Flamenco" />
+  <meta property="twitter:description" content="Metrónomo Flamenco. App para el Metronomo Flamenco" />
+  <meta property="twitter:image" content="https://metroapp.ideasypruebas2.es/assets/img/logo.png" />
+
+  <!-- Bootstrap CSS  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="/assets/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="/assets/fontawesome/css/brands.css">
+  <link rel="stylesheet" href="/assets/fontawesome/css/solid.css">
+
+  <!-- Estilo -->
+  <link rel="stylesheet" href="/assets/css/modern.css">
+
+  <!-- Tipografia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,200&family=Nunito:wght@300&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Componentes -->
+  <script src="/assets/components/components.js" type="module" defer></script>
+
+  <!-- Javascript -->
+  <script src="/assets/js/afinador.js"></script>
+  <script>
+    let objAfinador;
+    document.addEventListener('DOMContentLoaded', () => {
+      objAfinador = new Afinador();
+      objAfinador.cargarDatos();
+    })
+  </script>
+</head>
+
+<body>
+
+  <div class="container text-center pt-5 contenedor">
+
+    <app-cabecera titulo="Afinador" descripcion="Afinado de la guitarra con el micrófono"></app-cabecera>
+
+    <!-- Selección de cuerda (de la 6ª grave a la 1ª aguda) -->
+    <div class="mt-3 mb-3">
+      <label class="form-label fw-bold">Selecciona la cuerda:</label>
+      <div class="d-flex justify-content-center gap-2 flex-wrap">
+        <button type="button" class="btn btn-outline-primary btn-cuerda" id="btnCuerda6"
+          onclick="objAfinador.seleccionarCuerda(6)">6ª <small>E</small></button>
+        <button type="button" class="btn btn-outline-primary btn-cuerda" id="btnCuerda5"
+          onclick="objAfinador.seleccionarCuerda(5)">5ª <small>A</small></button>
+        <button type="button" class="btn btn-outline-primary btn-cuerda" id="btnCuerda4"
+          onclick="objAfinador.seleccionarCuerda(4)">4ª <small>D</small></button>
+        <button type="button" class="btn btn-outline-primary btn-cuerda" id="btnCuerda3"
+          onclick="objAfinador.seleccionarCuerda(3)">3ª <small>G</small></button>
+        <button type="button" class="btn btn-outline-primary btn-cuerda" id="btnCuerda2"
+          onclick="objAfinador.seleccionarCuerda(2)">2ª <small>B</small></button>
+        <button type="button" class="btn btn-outline-primary btn-cuerda" id="btnCuerda1"
+          onclick="objAfinador.seleccionarCuerda(1)">1ª <small>e</small></button>
+      </div>
+    </div>
+
+    <!-- Lectura -->
+    <div class="card p-4 mt-2">
+      <div class="d-flex justify-content-center align-items-baseline gap-2">
+        <span class="nota-grande" id="sp-nota">--</span>
+        <span class="text-muted">objetivo</span>
+      </div>
+      <div class="text-muted">Frecuencia objetivo: <span id="sp-frecuencia-objetivo">--</span></div>
+
+      <!-- Indicador visual -->
+      <div class="mt-3">
+        <div id="flecha" class="flecha">—</div>
+        <div id="zona-estado" class="zona-estado"></div>
+        <div class="barra">
+          <div class="barra-marca"></div>
+          <div id="barra-llena" class="barra-llena" style="width:50%"></div>
+        </div>
+        <div class="d-flex justify-content-between text-muted small">
+          <span>▼ Más grave</span>
+          <span>0</span>
+          <span>Más agudo ▲</span>
+        </div>
+      </div>
+
+      <div class="mt-2">
+        <span class="fs-5 fw-bold" id="sp-frecuencia">-- Hz</span>
+        <span class="text-muted ms-2" id="sp-cents"></span>
+      </div>
+
+      <div id="estado" class="mt-1 text-muted">Pulsa Iniciar y toca la cuerda seleccionada</div>
+    </div>
+
+    <!-- Controles -->
+    <div class="mt-3 d-flex justify-content-center gap-2 flex-wrap">
+      <button type="button" class="btn btn-success boton" onclick="objAfinador.iniciar()"><i
+          class="bi bi-mic"></i> <span id="sp-iniciar">Iniciar</span></button>
+      <button type="button" class="btn btn-primary boton" onclick="objAfinador.sonarReferencia()"><i
+          class="bi bi-music-note-beamed"></i> Sonar referencia</button>
+    </div>
+
+    <app-pie></app-pie>
+  </div>
+
+</body>
+
+</html>

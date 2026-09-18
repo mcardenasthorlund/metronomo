@@ -31,7 +31,7 @@ class Cantes {
         let lista = document.getElementById('lista-cantes');
         lista.innerHTML = '';
         this.cantes.cantes.forEach(cante => {
-            let liCompas = `<li class="list-group-item lista" onclick="objCantes.cargarCante('${cante.id}')">${cante.nombre} <small>${cante.detalle}</small><i class="bi bi-chevron-double-right"></i></li>`;
+            let liCompas = `<li class="list-group-item lista d-flex justify-content-between align-items-center" onclick="objCantes.cargarCante('${cante.id}')"><span>${cante.nombre} <small>${cante.detalle}</small></span><i class="bi bi-chevron-double-right" style="color:var(--color-primary)"></i></li>`;
             lista.innerHTML += liCompas;
         });
     }

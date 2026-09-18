@@ -244,7 +244,7 @@ a:hover { color: var(--color-primary-700); text-decoration: underline; }
 /* =========================
    Lists & Resources
    ========================= */
-.lista-recursos, .lista-bases, .lista-cantes, .lista-compases {
+.lista-recursos, .lista-bases, .lista-cantes, .lista-compases, .lista-compases-propios {
   list-style: none;
   margin:0;
   padding:0;
@@ -252,6 +252,11 @@ a:hover { color: var(--color-primary-700); text-decoration: underline; }
   flex-direction:column;
   gap: 0.5rem;
 }
+.lista-compases-propios .acciones { white-space: nowrap; }
+.icono-editar { color: var(--color-primary); cursor:pointer; }
+.icono-editar:hover { color: var(--color-primary-700); }
+.icono-eliminar { color: #dc3545; cursor:pointer; }
+.icono-eliminar:hover { color: #b02a37; }
 .lista-recursos li {
   display:flex;
   align-items:center;
@@ -408,6 +413,47 @@ input[type="text"]:focus, select:focus, textarea:focus {
 
 /* text center helper */
 .text-center { text-align:center; }
+
+/* =========================
+   Afinador
+   ========================= */
+.btn-cuerda.activo {
+  background: linear-gradient(180deg, var(--color-primary), var(--color-primary-700));
+  border-color: var(--color-primary);
+  color: #fff;
+}
+.nota-grande { font-size: 4rem; font-weight: 900; color: var(--text); }
+.flecha { font-size: 3rem; line-height: 1; color: var(--muted); transition: color var(--short); }
+.flecha.agudo { color: #dc3545; }
+.flecha.grave { color: #dc3545; }
+.flecha.afinado { color: var(--color-success); }
+.zona-estado { height: 4px; border-radius: 2px; background: transparent; transition: background var(--short); }
+.zona-estado.agudo, .zona-estado.grave { background: #dc3545; }
+.zona-estado.afinado { background: var(--color-success); }
+.barra {
+  position: relative;
+  height: 12px;
+  margin-top: .5rem;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #dc3545, #FFB020 46%, #16A34A 50%, #16A34A 50%, #FFB020 54%, #dc3545);
+}
+.barra-marca {
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 18px;
+  background: var(--text);
+}
+.barra-llena {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(255,255,255,0.85);
+  border-radius: 6px;
+}
 
 /* =========================
    Responsive breakpoints
