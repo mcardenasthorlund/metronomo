@@ -1,0 +1,25 @@
+# Credenciales de firma (NO versionar nunca)
+keystores/
+
+# TWA / Android generado por Bubblewrap
+twa-manifest.json
+manifest-checksum.txt
+assetlinks.json
+twa/
+app/
+gradle/
+build.gradle
+settings.gradle
+gradle.properties
+gradlew
+gradlew.bat
+store_icon.png
+local.properties
+app-release-signed.apk
+app-release-bundle.aab
+*.keystore
+*.p12
+/.gradle
+/build
+app-release-signed.apk.idsig
+app-release-unsigned-aligned.apk

@@ -423,7 +423,7 @@ input[type="text"]:focus, select:focus, textarea:focus {
   color: #fff;
 }
 .nota-grande { font-size: 4rem; font-weight: 900; color: var(--text); }
-.flecha { font-size: 3rem; line-height: 1; color: var(--muted); transition: color var(--short); }
+.flecha { font-size: 3rem; line-height: 1; color: var(--muted); transition: color var(--mid); }
 .flecha.agudo { color: #dc3545; }
 .flecha.grave { color: #dc3545; }
 .flecha.afinado { color: var(--color-success); }
@@ -453,6 +453,7 @@ input[type="text"]:focus, select:focus, textarea:focus {
   height: 100%;
   background: rgba(255,255,255,0.85);
   border-radius: 6px;
+  transition: width 0.35s ease;
 }
 
 /* =========================

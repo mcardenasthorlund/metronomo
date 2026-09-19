@@ -18,6 +18,9 @@ class Afinador {
     analyser = null;
     intervalo = null;
 
+    frecuenciasRecientes = [];
+    ultimaValida = null;
+
     constructor() {
         this.cuerdaActual = parseInt(localStorage.getItem('cuerdaAfinacion')) || 1;
     }
@@ -105,67 +108,103 @@ class Afinador {
         let timeData = new Float32Array(bufferLength);
         this.analyser.getFloatTimeDomainData(timeData);
 
-        let frecuencia = this.detectarFrecuenciaAutocorrelacion(timeData, this.audioCtx.sampleRate);
+        let resultado = this.detectarFrecuenciaAutocorrelacion(timeData, this.audioCtx.sampleRate);
 
-        if (frecuencia && frecuencia > 60 && frecuencia < 500) {
+        // Solo aceptamos detecciones estables: frecuencia en rango y señal con claridad suficiente
+        if (resultado && resultado.frecuencia > 60 && resultado.frecuencia < 500 && resultado.claridad > 0.3) {
+
+            // Suavizamos con un filtro de mediana sobre las últimas detecciones
+            this.frecuenciasRecientes.push(resultado.frecuencia);
+            if (this.frecuenciasRecientes.length > 8)
+                this.frecuenciasRecientes.shift();
+
+            let frecuencia = this.mediana(this.frecuenciasRecientes);
+
+            // Guardamos el último valor válido y su momento para retenerlo al apagarse el sonido
+            this.ultimaValida = { frecuencia: frecuencia, tiempo: Date.now() };
+
             this.actualizarUI(frecuencia);
+        } else if (this.ultimaValida && (Date.now() - this.ultimaValida.tiempo) < 1500) {
+            // El sonido se está apagando: mantenemos el último valor válido un instante
+            this.actualizarUI(this.ultimaValida.frecuencia);
         } else {
+            this.ultimaValida = null;
+            this.frecuenciasRecientes = [];
             document.getElementById('estado').textContent = 'Toca la cuerda ' + this.cuerdaActual + 'ª';
             this.actualizarUI(null);
         }
     }
 
-    // Detección de tono por autocorrelación (sin librerías)
+    mediana(valores) {
+        let copia = valores.slice().sort((a, b) => a - b);
+        let mitad = Math.floor(copia.length / 2);
+        if (copia.length % 2)
+            return copia[mitad];
+        return (copia[mitad - 1] + copia[mitad]) / 2;
+    }
+
+    // Detección de tono por autocorrelación (Método McLeod, sin librerías)
     detectarFrecuenciaAutocorrelacion(buffer, sampleRate) {
 
+        let len = buffer.length;
+
         let rms = 0;
-        for (let i = 0; i < buffer.length; i++) {
+        for (let i = 0; i < len; i++) {
             rms += buffer[i] * buffer[i];
         }
-        rms = Math.sqrt(rms / buffer.length);
-        if (rms < 0.01)
-            return null;
+        rms = Math.sqrt(rms / len);
 
         // Límites de autocorrelación para 60Hz-500Hz
         let minPeriod = Math.floor(sampleRate / 500);
         let maxPeriod = Math.floor(sampleRate / 60);
+        if (rms < 0.015 || maxPeriod >= len)
+            return null;
 
-        let mejorCorrelacion = -1;
-        let mejorPeriodo = maxPeriod;
+        // R(0) media para normalizar la autocorrelación
+        let r0 = 0;
+        for (let i = 0; i < len; i++) {
+            r0 += buffer[i] * buffer[i];
+        }
+        r0 /= len;
 
-        for (let period = maxPeriod; period > minPeriod; period--) {
-            let correlacion = 0;
-            for (let i = 0; i < buffer.length - period; i++) {
-                correlacion += buffer[i] * buffer[i + period];
+        // Autocorrelación normalizada para cada retardo
+        let r = new Float32Array(maxPeriod + 2);
+        for (let p = minPeriod; p <= maxPeriod; p++) {
+            let c = 0;
+            for (let i = 0; i < len - p; i++) {
+                c += buffer[i] * buffer[i + p];
             }
-            correlacion /= (buffer.length - period);
+            r[p] = (c / (len - p)) / r0;
+        }
 
-            if (correlacion > mejorCorrelacion) {
-                mejorCorrelacion = correlacion;
-                mejorPeriodo = period;
+        // Máximo global para fijar el umbral
+        let globalMax = -Infinity;
+        for (let p = minPeriod; p <= maxPeriod; p++) {
+            if (r[p] > globalMax)
+                globalMax = r[p];
+        }
+        if (globalMax < 0.3)
+            return null;
+
+        let umbral = globalMax * 0.5;
+
+        // Buscamos el primer pico significativo (el periodo más corto con
+        // buena correlación) para evitar caer en subarmónicos
+        for (let p = minPeriod + 1; p < maxPeriod; p++) {
+            if (r[p] > r[p - 1] && r[p] >= r[p + 1] && r[p] >= umbral) {
+                // Refinamiento parabólico
+                let y0 = r[p - 1];
+                let y1 = r[p];
+                let y2 = r[p + 1];
+                let pcorr = (y2 - y0) / (2 * (2 * y1 - y0 - y2));
+                let x = p;
+                if (pcorr >= -1 && pcorr <= 1)
+                    x = p + pcorr;
+                return { frecuencia: sampleRate / x, claridad: r[p] };
             }
         }
 
-        // Refinamiento parabólico para mayor precisión
-        let x0 = mejorPeriodo;
-        let x1 = x0 + 1;
-        let y0 = this.correlacionEn(buffer, x0 - 1);
-        let y1 = this.correlacionEn(buffer, x0);
-        let y2 = this.correlacionEn(buffer, x1);
-        let p = (y2 - y0) / (2 * (2 * y1 - y0 - y2));
-        if (p >= -1 && p <= 1)
-            x0 = x0 + p;
-
-        return sampleRate / x0;
-    }
-
-    correlacionEn(buffer, i) {
-        let length = buffer.length - i;
-        let corr = 0;
-        for (let j = 0; j < length; j++) {
-            corr += buffer[j] * buffer[j + i];
-        }
-        return corr / length;
+        return null;
     }
 
     actualizarUI(frecuencia) {
