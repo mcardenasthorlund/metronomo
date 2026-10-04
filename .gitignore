@@ -1,2 +1,5 @@
 # TWA / Android generado por Bubblewrap (todo dentro de publish/)
 publish/
+
+# Proyecto Android generado por Capacitor
+app-capacitor/
